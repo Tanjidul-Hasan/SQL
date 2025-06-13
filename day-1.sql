@@ -92,9 +92,25 @@ WHERE
     position = 'forwards'
     
 -- find the player list of goalkeepers
-select jersyno, firstname,clubname,age,position
-from
-player
-where
-position="goalkeepers"
+SELECT 
+    jersyno, firstname, clubname, age, position
+FROM
+    player
+WHERE
+    position = 'goalkeepers'
 
+-- find the player list of defenders.
+SELECT 
+    jersyno, firstname, clubname, age, position
+FROM
+    player
+where
+position ="defenders"
+
+-- find the player list of 'Midfielders'.
+SELECT 
+    jersyno, firstname, clubname, age, position
+FROM
+    player
+WHERE
+    position in("midfielders")
