@@ -73,11 +73,28 @@ where ClubName='Atletico Madrid';
 use afa
 select *from player
 -- find player who are more than 30 years old now and count how many are they
-select count(a.firstname)
+SELECT 
+    COUNT(a.firstname)
+FROM
+    (SELECT 
+        firstName, clubName, age
+    FROM
+        player
+    WHERE
+        age > 30) a
+
+-- find player who are playing in forward now
+SELECT 
+    jersyno, firstname, clubname, age, position
+FROM
+    player
+WHERE
+    position = 'forwards'
+    
+-- find the player list of goalkeepers
+select jersyno, firstname,clubname,age,position
 from
-(select firstName,
-clubName,
-age
-from player
-where age>30)a
+player
+where
+position="goalkeepers"
 
