@@ -83,6 +83,23 @@ FROM
     WHERE
         age > 30) a
 
+-- find player who are less than 30 years old now.
+
+SELECT 
+        firstName, clubName, age
+    FROM
+        player
+    WHERE
+        age<30
+        
+ -- find player who are 25 to 30 years old now.   
+SELECT 
+        firstName, clubName, age
+    FROM
+        player
+    WHERE
+        age between 25 and 30 -- ekhtre choto man age and boro man pore dite hobe
+        
 -- find player who are playing in forward now
 SELECT 
     jersyno, firstname, clubname, age, position
