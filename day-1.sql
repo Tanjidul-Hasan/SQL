@@ -70,3 +70,14 @@ insert into AFA.Player(JersyNo,FirstName,ClubName,Age,Position)values(22,'Lautar
 select *from AFA.Player
 select FirstName,Age from AFA.Player 
 where ClubName='Atletico Madrid';
+use afa
+select *from player
+-- find player who are more than 30 years old now and count how many are they
+select count(a.firstname)
+from
+(select firstName,
+clubName,
+age
+from player
+where age>30)a
+
