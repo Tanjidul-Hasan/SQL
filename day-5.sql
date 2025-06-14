@@ -100,6 +100,22 @@ select *from ProductTrades;
 select distinct Area
 from ProductTrades;
 -- if we want to do a multi line comments we can do this  with /* ----*/
+
+/* make a category_group of category like following:
+Grocery, Health and Beauty = FMCG
+Men Fashion , Women Fashion = Fashion
+Mobile,Laptop = EL
+Motors, Home Decoration= GM
+*/
+select distinct
+ CASE 
+        WHEN Category IN ('Grocery' , 'Health and Beauty') THEN 'FMCG'
+        WHEN Category IN ('Men Fashion' , 'Women Fashion') THEN 'Fashion'
+        WHEN Category IN ('Mobile' , 'Laptop') THEN 'EL'
+        WHEN Category IN ('Motors' , 'Home Decoration') THEN 'GM'
+    END AS Category_group
+from producttrades
+
 /*1. What is the total GEV for each category (FMCG, Fashion, EL, GM)?
 Grocery, Health and Beauty = FMCG
 Men Fashion , Women Fashion = Fashion
@@ -109,7 +125,7 @@ Motors, Home Decoration= GM
 
 SELECT 
     sum(GMV) as GMV,
-    CASE
+    CASE -- onkgulor poriborte ekta dat chaile ei style e kora jay.
         WHEN Category IN ('Grocery' , 'Health and Beauty') THEN 'FMCG'
         WHEN Category IN ('Men Fashion' , 'Women Fashion') THEN 'Fashion'
         WHEN Category IN ('Mobile' , 'Laptop') THEN 'EL'
