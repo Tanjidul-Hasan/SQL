@@ -171,6 +171,23 @@ order by PO_Price desc;
 14. Which category has the highest profit margin?
 15. What is the total commission for each area?
 */
+
+
+
+-- 8. What is the total GMV by area?
+select area, sum(GMV) Total_GMV
+from producttrades
+group by area
+order by total_gmv desc;
+
+-- 9. What is the total PO Price by area?
+select area, sum(porate)total_po_price
+from
+producttrades
+group by area
+order by total_po_price desc;
+
+
 select *from producttrades;
 select area,sum(GMV)-sum(PoRate),(sum(GMV)-sum(PoRate))/sum(GMV)*100 as profit_margin
 from ProductTrades
