@@ -34,7 +34,7 @@ select *from AFA.Player;
 set sql_safe_updates=0;
 update AFA.Player
 set Position="Forwards"
-where JersyNo=10;
+where JersyNo=10;producttrades
 update AFA.Player
 set Position= "Defenders"
 where JersyNo=13;
@@ -72,7 +72,7 @@ insert into AFA.Player(JersyNo,FirstName,ClubName,Age,Position)values(5,'Leandro
 insert into AFA.Player(JersyNo,FirstName,ClubName,Age,Position)values(7,'Rodrigo De Paul','Atletico Madrid',30,"Midfielders");
 insert into AFA.Player(JersyNo,FirstName,ClubName,Age,Position)values(14,'Palacios','Bayer leverkusen',26,"Midfielders");
 insert into AFA.Player(JersyNo,FirstName,ClubName,Age,Position)values(18,'Rodriguez','Real Betis',31,"Midfielders");
-insert into AFA.Player(JersyNo,FirstName,ClubName,Age,Position)values(16,' Giovani Lo Celso','Tottenham',29,"Midfielders");
+insert into AFA.Player(JersyNo,FirstName,ClubName,Age,Position)values(16,'Giovani Lo Celso','Tottenham',29,"Midfielders");
 insert into AFA.Player(JersyNo,FirstName,ClubName,Age,Position)values(20,'Mac Allister ','Liverpool',26,"Midfielders");
 insert into AFA.Player(JersyNo,FirstName,ClubName,Age,Position)values(24,' Enzo Fernandez','Chelsea',24,"Midfielders");
 insert into AFA.Player(JersyNo,FirstName,ClubName,Age,Position)values(9,'Julian Alvarez','Atletico Madrid',25,"Forwards");
@@ -230,9 +230,27 @@ select *from player
 
 -- update a row info
 update Player
-set firstname="Lionel Messy"
+set Full_name="Lionel Messy"
 where JersyNo=10;
+
+update player
+set full_Name='Giovani Lo Celso'
+where jersyno=16
 
 -- change column name
 ALTER TABLE player CHANGE FirstName Full_Name VARCHAR(100);
 ALTER TABLE player CHANGE ClubName Club_Name VARCHAR(100);
+
+-- update multiple in a column
+UPDATE player
+SET Full_Name = CASE Full_Name
+    WHEN 'Romero' THEN 'Cristian Romero'
+    WHEN 'Armani' THEN 'Franco Armani'
+    WHEN 'Lucas Martínez' THEN 'Lucas Martínez Quarta'
+	WHEN 'Rulli'THEN 'Gerónimo Rulli'
+    WHEN 'Pezzella'THEN 'Germán Pezzella'
+    WHEN 'Palacios' THEN 'Exequiel Palacios'
+    WHEN 'Rodriguez' THEN 'Guido Rodríguez'
+    ELSE 0
+END;
+
