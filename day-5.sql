@@ -176,7 +176,24 @@ select category, sum(GMV) highest_GMV
 from producttrades
 group by category
 order by highest_GMV desc
-limit 1
+limit 1;
+
+-- 4. What is the commission (GMV - PO Price) for each category?
+select 
+category,
+sum(GMV)-sum(porate) Commission
+from producttrades
+group by category;
+
+-- 6. Which area has the highest GMV contribution?
+select
+area,
+sum(GMV) highst_GMV
+from producttrades
+group by area
+order by highst_GMV desc
+limit 1;
+
 -- 7. Which area has the highest contribution to the PO Price?
 select area, sum(porate)total_po_price
 from
@@ -197,6 +214,14 @@ from
 producttrades
 group by area
 order by total_po_price desc;
+
+-- 13. What is the average shipping cost for each category?
+select 
+category, 
+avg(shippingcost) Average_Shipping_Cost
+from producttrades
+group by category
+order by Average_Shipping_Cost;
 
 
 select *from producttrades;
