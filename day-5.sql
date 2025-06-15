@@ -264,7 +264,8 @@ order by Average_Shipping_Cost;
 
 -- 14. Which category has the highest profit margin ((sum(GMV)-sum(PORATE))/sum(GMV) ?
 -- 15. What is the total commission(gmv-porate) for each area?
--- make a report with Category,category_group,GMV,PORATE, profit,profit_margin
+
+-- 16 make a report with Category,category_group,GMV,PORATE, profit,profit_margin
 
 select 
 category,
