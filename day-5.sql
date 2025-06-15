@@ -277,10 +277,20 @@ END AS Category_group,
 sum(porate) PoRate,
 sum(GMV) GMV,
 (sum(GMV)-sum(porate)) Profit,
-(sum(GMV)-sum(porate))/sum(GMV) Profit_Margin
+ROUND(((sum(GMV)-sum(porate))/sum(GMV))*100,2)Profit_Margin -- if we need to know percentage without percent sign
+-- CONCAT(ROUND(((sum(GMV)-sum(porate))/sum(GMV))*100,2), '%') Profit_Margin -- if need to show percent sign
 from producttrades
 group by category, category_group
 order by Profit_Margin desc
+
+-- Why use CONCAT()?
+/*Use it when:
+You want to display the margin with a % symbol.
+You're showing the result in dashboards, reports, or exporting for human reading.
+
+Don’t use it if:
+You want to keep it numeric for sorting, further calculations, or charting.*/
+
 
 
 -- What is the profit_margin for each area?
