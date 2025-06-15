@@ -137,7 +137,7 @@ GROUP BY Category_group
 ORDER BY SUM(GMV) DESC;
 
 /* 
-2.What is the total PO Price for each category?
+2.What is the total PO Price for each category_group?
 Grocery, Health and Beauty = FMCG
 Men Fashion , Women Fashion = Fashion
 Mobile,Laptop = EL
@@ -157,6 +157,7 @@ GROUP BY Category_group
 order by PO_Price desc;
 
 /*
+3. What is the profit(gmv-po_rate) of each category?
 3. Which category has the highest GMV contribution?
 4. What is the commission (GMV - PO Price) for each category?
 5. What is the profitability for each category?
@@ -223,7 +224,7 @@ from producttrades
 group by category
 order by Average_Shipping_Cost;
 
-
+-- What is the profit_margin for each area?
 select *from producttrades;
 select area,sum(GMV)-sum(PoRate),(sum(GMV)-sum(PoRate))/sum(GMV)*100 as profit_margin
 from ProductTrades
