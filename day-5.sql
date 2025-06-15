@@ -240,6 +240,10 @@ producttrades
 group by area
 order by total_po_price desc;
 
+-- 10. Which area has the highest profitability/gross_profit (gmv-porate)?
+-- 11. What is the commission(gmv-porate) for each area?
+-- 12. Which category has the highest shipping rate on an average?
+
 -- 12. Which category has the highest shipping rate on an average?
 select 
 category,
