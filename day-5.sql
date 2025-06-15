@@ -94,6 +94,18 @@ VALUES
 ('PROD068', 17987.23, 16545.11, 16234.00, 15500.44, 'Rajshahi', 'Women Fashion', 5.81,5.75, 15701.88),
 ('PROD069', 19123.56, 17800.43, 17555.99, 16888.22, 'Khulna', 'Motors', 6.01, 6.10,17011.66),
 ('PROD070', 15588.11, 14300.44, 14066.78, 13422.11, 'Barishal','Home Decoration', 4.20,4.18, 13611.33);
+
+-- if porate is high then sell rate(gmv) in this case for this product profit margine will be negative
+INSERT INTO 
+ProductTrades 
+(PrimaryProductID, GMV, NMV, GIS, GOS, Area, Category,ShippingRate, ShippingCost, PoRate) 
+VALUES
+('PROD0231', 18324.11, 17245.32, 16890.54, 16234.76,'Dhaka','Laptop', 6.12, 6.30,1116532.29)
+
+-- now i will delet this row.
+set sql_safe_updates=0
+delete from producttrades
+where primaryproductid='PROD0231' -- where primaryproductid in('PROD0231')
 -- select whole table 
 select *from ProductTrades;
 -- check in how many area this company making their sales. 
