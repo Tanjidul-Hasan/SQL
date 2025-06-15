@@ -264,6 +264,25 @@ order by Average_Shipping_Cost;
 
 -- 14. Which category has the highest profit margin ((sum(GMV)-sum(PORATE))/sum(GMV) ?
 -- 15. What is the total commission(gmv-porate) for each area?
+-- make a report with Category,category_group,GMV,PORATE, profit,profit_margin
+
+select 
+category,
+CASE
+        WHEN Category IN ('Grocery' , 'Health and Beauty') THEN 'FMCG'
+        WHEN Category IN ('Men Fashion' , 'Women Fashion') THEN 'Fashion'
+        WHEN Category IN ('Mobile' , 'Laptop') THEN 'EL'
+        WHEN Category IN ('Motors' , 'Home Decoration') THEN 'GM'
+END AS Category_group,
+sum(porate) PoRate,
+sum(GMV) GMV,
+(sum(GMV)-sum(porate)) Profit,
+(sum(GMV)-sum(porate))/sum(GMV) Profit_Margin
+from producttrades
+group by category, category_group
+order by Profit_Margin desc
+
+
 -- What is the profit_margin for each area?
 select *from producttrades;
 select area,sum(GMV)-sum(PoRate),(sum(GMV)-sum(PoRate))/sum(GMV)*100 as profit_margin
