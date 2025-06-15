@@ -201,6 +201,15 @@ category,
 from producttrades
 group by category;
 
+
+-- 5. What is the profitability/gross_profit(gmv-porate) for each category?
+
+select category,
+(sum(GMV)-sum(porate)) Gross_profit
+from producttrades
+group by category
+order by gross_profit
+
 -- 6. Which area has the highest GMV contribution?
 select
 area,
