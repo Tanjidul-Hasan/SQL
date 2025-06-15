@@ -233,12 +233,13 @@ order by total_po_price desc;
 
 -- 12. Which category has the highest shipping rate on an average?
 select 
-category, 
-avg(shippingrate) Average_Shipping_Rate,
--- avg(shippingcost) Average_Shipping_Cost
+category,
+avg(shippingrate) Average_Shipping_Rate
+-- avg(shippingcost) Average_Shipping_Cost,
+-- (avg(shippingrate)-avg(shippingcost)) shipping_Revenue
 from producttrades
 group by category
-order by Average_Shipping_Rate;
+order by Average_Shipping_Rate desc; -- shipping_Revenue
 
 
 -- 13. What is the average shipping cost for each category?
