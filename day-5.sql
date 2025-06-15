@@ -175,17 +175,17 @@ order by PO_Price desc;
 3. What is the profit(gmv-po_rate) of each category?
 3. Which category has the highest GMV contribution?
 4. What is the commission (GMV - PO Price) for each category?
-5. What is the profitability for each category?
+5. What is the profitability(gmv-porate) for each category?
 6. Which area has the highest GMV contribution?
 7. Which area has the highest contribution to the PO Price?
 8. What is the total GMV by area?
 9. What is the total PO Price by area?
-10. Which area has the highest profitability?
-11. What is the commission for each area?
+10. Which area has the highest profitability/gross_profit (gmv-porate)?
+11. What is the commission(gmv-porate) for each area?
 12. Which category has the highest shipping rate on an average?
 13. What is the average shipping cost for each category?
-14. Which category has the highest profit margin?
-15. What is the total commission for each area?
+14. Which category has the highest profit margin ((sum(GMV)-sum(PORATE))/sum(GMV) ?
+15. What is the total commission(gmv-porate) for each area?
 */
 -- 3. Which category has the highest GMV contribution?
 select category, sum(GMV) highest_GMV
