@@ -106,11 +106,14 @@ VALUES
 set sql_safe_updates=0
 delete from producttrades
 where primaryproductid='PROD0231' -- where primaryproductid in('PROD0231')
+
 -- select whole table 
 select *from ProductTrades;
+
 -- check in how many area this company making their sales. 
 select distinct Area
 from ProductTrades;
+
 -- if we want to do a multi line comments we can do this  with /* ----*/
 
 /* make a category_group of category like following:
@@ -179,7 +182,7 @@ order by PO_Price desc;
 9. What is the total PO Price by area?
 10. Which area has the highest profitability?
 11. What is the commission for each area?
-12. Which category has the highest shipping rate on average?
+12. Which category has the highest shipping rate on an average?
 13. What is the average shipping cost for each category?
 14. Which category has the highest profit margin?
 15. What is the total commission for each area?
@@ -194,7 +197,7 @@ limit 1;
 -- 4. What is the commission (GMV - PO Price) for each category?
 select 
 category,
-sum(GMV)-sum(porate) Commission
+(sum(GMV)-sum(porate)) Commission
 from producttrades
 group by category;
 
@@ -227,6 +230,16 @@ from
 producttrades
 group by area
 order by total_po_price desc;
+
+-- 12. Which category has the highest shipping rate on an average?
+select 
+category, 
+avg(shippingrate) Average_Shipping_Rate,
+-- avg(shippingcost) Average_Shipping_Cost
+from producttrades
+group by category
+order by Average_Shipping_Rate;
+
 
 -- 13. What is the average shipping cost for each category?
 select 
