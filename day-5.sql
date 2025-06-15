@@ -242,7 +242,6 @@ order by total_po_price desc;
 
 -- 10. Which area has the highest profitability/gross_profit (gmv-porate)?
 -- 11. What is the commission(gmv-porate) for each area?
--- 12. Which category has the highest shipping rate on an average?
 
 -- 12. Which category has the highest shipping rate on an average?
 select 
@@ -263,6 +262,8 @@ from producttrades
 group by category
 order by Average_Shipping_Cost;
 
+-- 14. Which category has the highest profit margin ((sum(GMV)-sum(PORATE))/sum(GMV) ?
+-- 15. What is the total commission(gmv-porate) for each area?
 -- What is the profit_margin for each area?
 select *from producttrades;
 select area,sum(GMV)-sum(PoRate),(sum(GMV)-sum(PoRate))/sum(GMV)*100 as profit_margin
