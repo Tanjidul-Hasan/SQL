@@ -1526,3 +1526,5 @@ select *from inventory
 select extract(year from last_update_date) year,product_id,quantity,supplier_id
 from inventory
 where last_update_date like "%2025%" -- ei line na dile sokol yearv er ashbe.. 
+select count(transaction_id)
+from transaction
