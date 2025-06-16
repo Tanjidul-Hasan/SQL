@@ -503,11 +503,16 @@ values
 (59445, 'Clocks' ,650.95, 'Everyday Essentials' ),
 (59709, 'Window Regulators & Motors' ,1176.71, 'Everyday Essentials' ),
 (77866, 'Table covers & Centre Pieces' ,328.68, 'Everyday Essentials' );
+select *from product;
+
 select product_id,product_name
 from product
 where product_name like '%child%';
 
-set sql_safe_updates=0
+select distinct category -- or distinct(category) same ans will get.
+from product;
+
+set sql_safe_updates=0;
 update product
 set product_name="Childrens Books"
 where product_id=46695
