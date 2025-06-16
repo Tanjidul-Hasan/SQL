@@ -1521,4 +1521,8 @@ values
 (4162,59709,357, '2026-12-08' ,3633),
 (4003,77866,532, '2026-12-09' ,1641),
 (6620,61669,211, '2026-12-10' ,3193);
-
+select *from inventory
+-- find product_id, quantity and supplier_id of 2025 
+select extract(year from last_update_date) year,product_id,quantity,supplier_id
+from inventory
+where last_update_date like "%2025%" -- ei line na dile sokol yearv er ashbe.. 
