@@ -461,7 +461,7 @@ values
 (75248, 'Pinball' ,688.38, 'Everyday Essentials' ),
 (74749, 'Pencils' ,164.04, 'Everyday Essentials' ),
 (71277, 'Electric Insect Killers' ,538.99, 'Everyday Essentials' ),
-(46695, 'Childrens Books' ,337.97, 'Everyday Essentials' ),
+(46695, 'Children''s Books' ,337.97, 'Everyday Essentials' ),
 (65854, 'Decanters' ,651.62, 'Everyday Essentials' ),
 (69786, 'Technology eBooks' ,1584.5, 'Everyday Essentials' ),
 (60262, 'Bearings' ,420.81, 'Everyday Essentials' ),
@@ -502,5 +502,5 @@ values
 (51914, 'Mounting Kits' ,592.94, 'Everyday Essentials' ),
 (59445, 'Clocks' ,650.95, 'Everyday Essentials' ),
 (59709, 'Window Regulators & Motors' ,1176.71, 'Everyday Essentials' ),
-(77866, 'Table covers & Centre Pieces' ,328.68, 'Everyday Essentials' )
+(77866, 'Table covers & Centre Pieces' ,328.68, 'Everyday Essentials' );
 select *from product
