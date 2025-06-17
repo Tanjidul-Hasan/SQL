@@ -1,0 +1,27 @@
+if we want to get a large dataset from ecel formate to sql formate we can follow this code:
+
+1. ="("&A1&","&B1&","&C1&","&D1&","&E1&")"     this is for heading section
+
+explaination:
+ 
+amra headline bar er jekono ekti column e giye -
+                  i. = and double quation dibo like this =" "
+                 ii. then ("") er vitor 1st bracket dibo like this = "()"
+                iii. now 1st bracket er vitor "&column_name&" diye oi column name er heading pabo like this ="("&A1&")" 
+                iv. evabe jodi aro column name lage to0be 1st bracket er vitorer ongsher potitar majhe comkma use korlei hobe like this 
+                    ="("&A1&","&B1&")"
+
+2. ="("&A2&","&B2&","&" '"&C2&"' "&","&D2&","&" '"&E2&"' "&")"&","   this is for data section
+
+explaination:
+
+ekhane all are ok but amader kono column er data jodi string type hoy or date type hoy se khetre ei vabe oi column ke code korte hobe
+"&" '"&C2&"' "&"   ekhane c2 column string type tai take amra evabe likhsi 
+and, sob last e comma add korte last '' er porer ongshota likhte hobe
+
+amader sql e onk somoy date ke text e convert korte hoy ta amra nimnokto p[rokriyay korte pari 
+=text(date column er jekhane date ase oi row, "yyyy-mm-dd") 
+ 
+example : =TEXT(C2,"yyyy-mm-dd")
+
+
