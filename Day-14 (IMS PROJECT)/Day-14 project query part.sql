@@ -17,4 +17,7 @@ Description:
 Sale: Decrease quantity by 3 for product_id = 2 (Desk).
 Purchase: Increase quantity by 10 for product_id = 1 (Laptop).
  */
- 
+set sql_safe_updates=0
+update inventory
+set quantity = quantity-3
+where product_id =2
