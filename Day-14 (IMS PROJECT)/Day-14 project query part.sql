@@ -77,4 +77,24 @@ transaction t
 join 
 product p
 on t.product_id=p.product_id
-where t.quantity<10
+where t.quantity<10;
+
+/* Query:5 Generate Monthly Sales Report
+Description:
+Summarizes total units sold per product during October 2024.*/
+
+select p.product_id,p.product_name,p.category,sum(t.quantity) total_sold
+from product p
+join transaction t
+on p.product_id=t.product_id
+where t.transaction_type='sale'-- /'purchase' 
+and t.transaction_date between '2024-09-01' and '2024-09-30'
+group by p.product_id,p.product_name,p.category-- always group by er modde non agregated sob collumn likhte hobe ja select kora hoyeche excepet agregated one.
+/*in this query date er khetre ami ekta bishoy kheal korla ami month er range dewar 
+khetre oi month e oi date ase kina ta nishchit hobe like ami dila 31-09-2024 but 31 
+tarikh oi month er modde nei eta kaj korbena. so eta ekta importatnt issue.*/
+
+/* Query 6: Reorder Products with Low Stock
+Description:
+Identifies products with inventory less than 5 units for proactive restocking.*/
+
