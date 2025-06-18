@@ -19,6 +19,7 @@ Description:
 Sale: Decrease quantity by 3 for product_id = 2 (Desk).
 Purchase: Increase quantity by 10 for product_id = 1 (Laptop).
  */
+ 
  -- after sale
 set sql_safe_updates=0
 update inventory
@@ -39,13 +40,14 @@ from transaction
 where product_id=50295 -- and transaction_type='purchase'/'sale'
 
 -- if we want to know by product name(partial) and we don't know product_id and even full product name also in that case:
+
 select p.product_name,t.product_id,t.transaction_type,t.transaction_date,t.quantity
 from
 (select product_id,transaction_type,transaction_date,quantity from transaction)t
 join
 (select product_id, product_name from product)p
 on t.product_id=p.product_id
-where p.product_name like '%laptop%'
+where p.product_name like '%laptop%';
 
 -- another example:
 SELECT t.transaction_type, t.quantity, t.transaction_date
@@ -65,4 +67,14 @@ on t.product_id= p.product_id
 Where transaction_type ='Purchase' and 
 p.product_name like '%oil%' ;
 
+/*Query 4: List Low Stock Products
+Description:
+Shows products with stock quantity less than 5, useful for identifying items needing restocking.*/
 
+select p.product_name,p.product_id,t.quantity
+from
+transaction t
+join 
+product p
+on t.product_id=p.product_id
+where t.quantity<10
