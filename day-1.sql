@@ -243,7 +243,7 @@ ALTER TABLE player CHANGE ClubName Club_Name VARCHAR(100);
 
 -- update multiple in a column
 UPDATE player
-SET Full_Name = CASE Full_Name
+SET Full_Name = CASE Full_Name -- ektar poriborte ekta data chaile evabe kora jay and else na lagle na likhleo chole jodi baki row jemon ase temon rakhte chai
     WHEN 'Romero' THEN 'Cristian Romero'
     WHEN 'Armani' THEN 'Franco Armani'
     WHEN 'Lucas Martínez' THEN 'Lucas Martínez Quarta'
