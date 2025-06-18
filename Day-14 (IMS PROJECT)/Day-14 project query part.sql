@@ -46,3 +46,23 @@ join
 (select product_id, product_name from product)p
 on t.product_id=p.product_id
 where p.product_name like '%laptop%'
+
+-- another example:
+SELECT t.transaction_type, t.quantity, t.transaction_date
+FROM 
+(select product_id,transaction_type, quantity, transaction_date from Transaction
+Where transaction_type ='Purchase')t
+JOIN 
+(select Product_id,product_name from product)p 
+ON t.product_id = p.product_id
+WHERE p.product_name like '%oil%' ;
+
+-- another way
+SELECT p.product_name,t.transaction_type, t.quantity, t.transaction_date
+FROM transaction t 
+join product p
+on t.product_id= p.product_id
+Where transaction_type ='Purchase' and 
+p.product_name like '%oil%' ;
+
+
