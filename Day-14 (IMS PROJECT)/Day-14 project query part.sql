@@ -147,7 +147,13 @@ where product_id=72102;
 
 /*Query 9: View Products by Category
 Description:
-Lists all products in the &#39;Electronics&#39; category with their prices.*/
+Lists all products in the Style & Trends category with their prices.*/
+
+select  product_id,product_name,category,price
+from
+product
+where category= 'style & trends';
+
 
 /* Query10: Check Total Value of Inventory
 Description:
