@@ -1,8 +1,9 @@
-use ims
+use ims;
 
 -- Query-1: Check product stock levels.
 /*Description:
-Retrieves the current stock quantity for each product by joining the Inventory and Products tables on product_id.*/
+Retrieves the current stock quantity for each product 
+by joining the Inventory and Products tables on product_id.*/
 
 select p.product_name,i.quantity
 from
@@ -10,7 +11,7 @@ from
 join -- here 'join' act as a inner join
 (select product_id,quantity from inventory)i
 on p.product_id=i.product_id
-where p.product_name like '%laptop%'
+where p.product_name like '%laptop%';
 
 
 /* Query 2: Update Stock Levels After Sale or Purchase
@@ -21,23 +22,25 @@ Purchase: Increase quantity by 10 for product_id = 1 (Laptop).
  */
  
  -- after sale
-set sql_safe_updates=0
+set sql_safe_updates=0;
+
 update inventory
 set quantity = quantity-6
-where product_id =50295
+where product_id =50295;
 
 -- after purchage
 update inventory
 set quantity=quantity+6
-where product_id=50295
+where product_id=50295;
 
 /*Query 3: View Transaction History for a Product
 Description:
-Displays transaction type, quantity, and date for product_id = 1 (Laptop), showing only relevant
+Displays transaction type, quantity, and date for 
+product_id = 1 (Laptop), showing only relevant
 transactions.*/
 select product_id,transaction_type,transaction_date,quantity
 from transaction
-where product_id=50295 -- and transaction_type='purchase'/'sale'
+where product_id=50295; -- and transaction_type='purchase'/'sale'
 
 -- if we want to know by product name(partial) and we don't know product_id and even full product name also in that case:
 
@@ -69,7 +72,8 @@ p.product_name like '%oil%' ;
 
 /*Query 4: List Low Stock Products
 Description:
-Shows products with stock quantity less than 5, useful for identifying items needing restocking.*/
+Shows products with stock quantity less than 5, 
+useful for identifying items needing restocking.*/
 
 select p.product_name,p.product_id,t.quantity
 from
@@ -89,7 +93,10 @@ join transaction t
 on p.product_id=t.product_id
 where t.transaction_type='sale'-- /'purchase' 
 and t.transaction_date between '2024-09-01' and '2024-09-30'
-group by p.product_id,p.product_name,p.category-- always group by er modde non agregated sob collumn likhte hobe ja select kora hoyeche excepet agregated one.
+group by p.product_id,p.product_name,p.category;
+
+-- always group by er modde non agregated sob collumn likhte hobe ja select kora hoyeche excepet agregated one.
+
 /*in this query date er khetre ami ekta bishoy kheal korla ami month er range dewar 
 khetre oi month e oi date ase kina ta nishchit hobe like ami dila 31-09-2024 but 31 
 tarikh oi month er modde nei eta kaj korbena. so eta ekta importatnt issue.*/
@@ -98,3 +105,14 @@ tarikh oi month er modde nei eta kaj korbena. so eta ekta importatnt issue.*/
 Description:
 Identifies products with inventory less than 5 units for proactive restocking.*/
 
+select p.product_id,i.inventory_id,p.product_name,i.quantity
+from
+product p
+join inventory i
+on p.product_id=i.product_id
+where i.quantity<15
+order by quantity asc
+/* Query 7: Add a New Product to Inventory
+Description:
+Adds a new product (&quot;Monitor&quot;) to the 
+Products table and inserts its initial inventory quantity.*/
