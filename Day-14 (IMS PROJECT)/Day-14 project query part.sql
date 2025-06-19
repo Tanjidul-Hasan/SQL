@@ -137,9 +137,18 @@ values
 Description:
 Deletes a product (product_id = 3) from both the Inventory and Products tables. Ensures
 referential integrity.*/
+-- I have a product Monitor product_id=72102,inventory_id=7318 . now i want to delet this product
+
+delete from product
+where product_id = 72102;
+delete from inventory
+where product_id=72102;
+
 
 /*Query 9: View Products by Category
 Description:
 Lists all products in the &#39;Electronics&#39; category with their prices.*/
 
-
+/* Query10: Check Total Value of Inventory
+Description:
+Calculates the inventory value of each product as quantity × price.*/
