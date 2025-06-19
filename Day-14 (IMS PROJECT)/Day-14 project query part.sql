@@ -119,6 +119,7 @@ order by i.quantity desc;
 Description:
 Adds a new product (&quot;Monitor&quot;) to the 
 Products table and inserts its initial inventory quantity.*/
+
 -- insert data into product table
 insert into product
 (product_id,product_name,price,Category)
@@ -130,4 +131,11 @@ insert into inventory
 (inventory_id,product_id,quantity)
 values
 (7218,(select product_id from product where product_name='Laptop'),70); -- this nbest one
+
+
+/*Query 8: Delete a Product from Inventory
+Description:
+Deletes a product (product_id = 3) from both the Inventory and Products tables. Ensures
+referential integrity.*/
+
 
