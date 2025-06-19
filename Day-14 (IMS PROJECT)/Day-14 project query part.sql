@@ -165,3 +165,31 @@ join product p
 on i.product_id=p.product_id
 group by i.inventory_id,i.product_id,p.product_name
 order by total_Inventory_value desc
+
+/* Query 11: View Products Not Sold in a Given Period
+Description:
+Shows products with no sales after September 1, 2024.*/
+
+/* Query 12: Calculate Total Revenue for a Period
+Description:
+Calculates revenue from sales in October 2024 by multiplying quantity with price.*/
+
+/* Query 13: Find the Most Sold Product
+Description:
+Identifies the top-selling product in October 2024 based on total units sold.*/
+
+/* Query 14: View Restock History for a Product
+Description:
+Displays the purchase history (restocks) for product_id = 2.*/
+
+/* Query 15: List All Products Sold Today
+Description:
+Lists products and quantities sold on the current date.*/
+
+/*Query 16: View Stock for Selected Products
+Description:
+Displays stock levels for products with IDs 1 and 2.*/
+
+/*Query 17: List Products with No Stock
+Description:
+Lists products that currently have zero inventory.*/
