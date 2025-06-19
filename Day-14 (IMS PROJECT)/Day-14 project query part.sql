@@ -158,3 +158,10 @@ where category= 'style & trends';
 /* Query10: Check Total Value of Inventory
 Description:
 Calculates the inventory value of each product as quantity × price.*/
+
+select i.inventory_id,i.product_id,p.product_name,sum(quantity*price) total_Inventory_value
+from inventory i
+join product p
+on i.product_id=p.product_id
+group by i.inventory_id,i.product_id,p.product_name
+order by total_Inventory_value desc
