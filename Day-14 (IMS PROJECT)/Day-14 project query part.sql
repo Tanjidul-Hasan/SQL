@@ -138,4 +138,8 @@ Description:
 Deletes a product (product_id = 3) from both the Inventory and Products tables. Ensures
 referential integrity.*/
 
+/*Query 9: View Products by Category
+Description:
+Lists all products in the &#39;Electronics&#39; category with their prices.*/
+
 
