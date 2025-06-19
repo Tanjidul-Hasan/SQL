@@ -112,9 +112,22 @@ join inventory i
 on p.product_id=i.product_id
 where i.quantity<10
 -- order by i.quantity asc
-order by i.quantity desc
+order by i.quantity desc;
+
+
 /* Query 7: Add a New Product to Inventory
 Description:
 Adds a new product (&quot;Monitor&quot;) to the 
 Products table and inserts its initial inventory quantity.*/
-select
+-- insert data into product table
+insert into product
+(product_id,product_name,price,Category)
+values
+(71102,'Laptop',1102.58,'Tech & Gadgets');
+
+-- insert into inventory table using subquery
+insert into inventory
+(inventory_id,product_id,quantity)
+values
+(7218,(select product_id from product where product_name='Laptop'),70); -- this nbest one
+
