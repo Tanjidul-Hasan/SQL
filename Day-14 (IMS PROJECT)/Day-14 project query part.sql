@@ -110,9 +110,11 @@ from
 product p
 join inventory i
 on p.product_id=i.product_id
-where i.quantity<15
-order by quantity asc
+where i.quantity<10
+-- order by i.quantity asc
+order by i.quantity desc
 /* Query 7: Add a New Product to Inventory
 Description:
 Adds a new product (&quot;Monitor&quot;) to the 
 Products table and inserts its initial inventory quantity.*/
+select
