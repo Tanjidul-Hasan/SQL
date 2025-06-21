@@ -1,7 +1,14 @@
 drop database if exists zepto_inventory ;
 create database zepto_inventory;
 use zepto_inventory;
+
 select *from zepto_v1
+limit 5
+
+-- count of rows
+select count(*) from zepto_v1
+
+
 
 select distinct category from zepto_v1
 select distinct outofstock from zepto_v1
