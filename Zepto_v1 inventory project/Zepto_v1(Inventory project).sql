@@ -68,6 +68,10 @@ select mrp,discountedsellingprice from zepto_v1
 limit 10;
 
 -- Q1 find the top 10 best-value products based on the discount percentage.alter 
+select distinct(name),mrp,discountpercent
+from zepto_v1
+order by discountpercent desc
+limit 10;
 -- Q2. what are the products with high mrp but out of stocks
 -- Q3. calculate estimated revenue for each categoy
 -- Q4. find all products where mrp is greater than 500tk and discount is less than 10%
