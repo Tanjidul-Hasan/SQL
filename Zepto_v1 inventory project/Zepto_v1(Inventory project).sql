@@ -8,6 +8,25 @@ limit 5
 -- count of rows
 select count(*) from zepto_v1
 
+-- check null values
+select  * from zepto_v1
+where category is null
+or 
+ name is null
+or 
+mrp is null
+or 
+discountpercent is null
+or 
+availablequantity is null
+or 
+discountedsellingprice is null
+or 
+weightingms is null
+or 
+outofstock is null
+or 
+quantity is null;
 
 
 select distinct category from zepto_v1
