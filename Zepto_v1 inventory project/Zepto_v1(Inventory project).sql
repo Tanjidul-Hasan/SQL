@@ -117,9 +117,9 @@ end as weight_category
 from zepto_v1;
 
 -- Q8. what is the total Inventory Weight per category.
-select 
+select
 category, 
-sum(weightingms) total_weight 
+sum(availablequantity*weightingms) total_weight 
 from zepto_v1
 group by category
 order by total_weight desc;
