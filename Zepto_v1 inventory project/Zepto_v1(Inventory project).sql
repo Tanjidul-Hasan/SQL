@@ -72,9 +72,25 @@ select distinct(name),mrp,discountpercent
 from zepto_v1
 order by discountpercent desc
 limit 10;
--- Q2. what are the products with high mrp but out of stocks
+
+-- Q2. what are the products with high mrp(e.g:300) but out of stocks
+select name,mrp
+from zepto_v1
+where mrp>300 and outofstock='true'
+order by mrp desc;
+
 -- Q3. calculate estimated revenue for each categoy
+select category, sum(discountedsellingprice*availablequantity) Revenue
+from zepto_v1
+group by category
+order by revenue desc
+
 -- Q4. find all products where mrp is greater than 500tk and discount is less than 10%
+select name, category,mrp,discountpercent
+from zepto_v1
+where mrp>500 and discountpercent<10
+order by mrp desc
+
 -- Q5. identify the top 5 categories offering the highest average discount percentage.
 -- Q6. find the price per gram for products above 100g and sort by best value.
 -- Q7. group the products into categories like Low,Medium,Bulk
