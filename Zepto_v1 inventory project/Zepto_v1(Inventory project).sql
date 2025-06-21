@@ -83,15 +83,21 @@ order by mrp desc;
 select category, sum(discountedsellingprice*availablequantity) Revenue
 from zepto_v1
 group by category
-order by revenue desc
+order by revenue desc;
 
 -- Q4. find all products where mrp is greater than 500tk and discount is less than 10%
 select name, category,mrp,discountpercent
 from zepto_v1
 where mrp>500 and discountpercent<10
-order by mrp desc
+order by mrp desc;
 
 -- Q5. identify the top 5 categories offering the highest average discount percentage.
+select category, avg(discountpercent)AvgDiscountPercent
+from zepto_v1
+group by category
+order by avgdiscountpercent desc
+limit 5;
+
 -- Q6. find the price per gram for products above 100g and sort by best value.
 -- Q7. group the products into categories like Low,Medium,Bulk
 -- Q8. what is the total Inventory Weight per category.
