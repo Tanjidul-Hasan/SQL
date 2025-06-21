@@ -122,4 +122,4 @@ category,
 sum(weightingms) total_weight 
 from zepto_v1
 group by category
-order by total_weight desc
+order by total_weight desc;
