@@ -40,3 +40,10 @@ from
 from zepto_v1
 group by category
 order by total_mrp desc)a
+
+-- check products names 
+select name, count(name)
+from zepto_v1
+group by name
+having count(name)>1
+order by count(name) desc
