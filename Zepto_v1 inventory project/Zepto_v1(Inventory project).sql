@@ -3,34 +3,36 @@ create database zepto_inventory;
 use zepto_inventory;
 
 select *from zepto_v1
-limit 5
+limit 5;
 
 -- count of rows
-select count(*) from zepto_v1
+select count(*) from zepto_v1;
+
+-- How many categories this file have?
+select distinct category from zepto_v1;
 
 -- check null values
-select  * from zepto_v1
-where category is null
-or 
- name is null
-or 
-mrp is null
-or 
-discountpercent is null
-or 
-availablequantity is null
-or 
-discountedsellingprice is null
-or 
-weightingms is null
-or 
-outofstock is null
-or 
-quantity is null;
+SELECT 
+    *
+FROM
+    zepto_v1
+WHERE
+    category IS NULL OR name IS NULL
+        OR mrp IS NULL
+        OR discountpercent IS NULL
+        OR availablequantity IS NULL
+        OR discountedsellingprice IS NULL
+        OR weightingms IS NULL
+        OR outofstock IS NULL
+        OR quantity IS NULL;
 
+-- check outofstocks
+select distinct outofstock from zepto_v1;
+select outofstock,count(outofstock) stock
+from zepto_v1
+group by outofstock;
 
-select distinct category from zepto_v1
-select distinct outofstock from zepto_v1
+-- check total_mrp
 select 
 sum(a.total_mrp)
 from
