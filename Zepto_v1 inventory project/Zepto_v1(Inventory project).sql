@@ -68,7 +68,11 @@ select mrp,discountedsellingprice from zepto_v1
 limit 10;
 
 -- Q1 find the top 10 best-value products based on the discount percentage.alter 
-   Q2. what are the products with high mrp but out of stocks
-   Q3. calculate estimated revenue for each categoy
-   Q4. find all products where mrp is greater than 500tk and discount is less than 10%
+-- Q2. what are the products with high mrp but out of stocks
+-- Q3. calculate estimated revenue for each categoy
+-- Q4. find all products where mrp is greater than 500tk and discount is less than 10%
+-- Q5. identify the top 5 categories offering the highest average discount percentage.
+-- Q6. find the price per gram for products above 100g and sort by best value.
+-- Q7. group the products into categories like Low,Medium,Bulk
+-- Q8. what is the total Inventory Weight per category.
    
