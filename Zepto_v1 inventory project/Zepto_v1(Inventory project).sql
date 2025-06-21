@@ -39,11 +39,30 @@ from
 (select category,sum(mrp) total_mrp 
 from zepto_v1
 group by category
-order by total_mrp desc)a
+order by total_mrp desc)a;
 
--- check products names 
+-- check products names  those reapeate more than 1
 select name, count(name)
 from zepto_v1
 group by name
 having count(name)>1
 order by count(name) desc
+
+-- Data Cleaning 
+    -- check products with zero price
+select *from zepto_v1
+where mrp=0
+or discountedsellingprice=0;
+
+-- delect product with zero price from the table
+set sql_safe_updates=0;
+delete from zepto_v1
+where mrp=0;
+
+-- correct mrp price and discountsellingprice which are now in paysha
+UPDATE zepto_v1 
+SET 
+    mrp = mrp / 100.0,
+    discountedsellingprice = discountedsellingprice / 100.0;
+    
+    
